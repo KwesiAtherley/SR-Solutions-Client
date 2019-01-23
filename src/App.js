@@ -8,7 +8,9 @@ import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
-import AdminView from './products/components/AdminView'
+import Product from './products/components/Product'
+import Products from './products/components/Products'
+import ProductEdit from './products/components/ProductEdit'
 
 class App extends Component {
   constructor () {
@@ -55,8 +57,14 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword flash={this.flash} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/admin' render={() => (
-            <AdminView flash={this.flash} user={user} />
+          <AuthenticatedRoute user={user} exact path='/products' render={() => (
+            <Products flash={this.flash} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/products/:id' render={() => (
+            <Product flash={this.flash} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/products/:id/edit' render={() => (
+            <ProductEdit flash={this.flash} user={user} />
           )} />
         </main>
       </React.Fragment>
