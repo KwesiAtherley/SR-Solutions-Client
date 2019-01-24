@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import apiUrl from '../../apiConfig'
 import { Link, withRouter } from 'react-router-dom'
+import productMessages from '../productMessages.js'
 
 class Products extends Component {
   constructor (props) {
@@ -33,6 +34,7 @@ class Products extends Component {
     if (!this.state.products) {
       return <p>loading...</p>
     }
+    
     const products = this.state.products.map(product => {
       return (
         <li key={product._id}>
@@ -46,7 +48,7 @@ class Products extends Component {
         <button type="button" className="btn btn-link"><Link to={'/products-create'}>Create Product</Link></button>
         <h4>Products:</h4>
         <ol>
-          {products}
+          {this.state.products.length ? products : <h4>You don&#39;t have any products!</h4>}
         </ol>
       </React.Fragment>
     )
