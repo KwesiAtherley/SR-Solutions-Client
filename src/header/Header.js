@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import logo from './logo.png'
 import './Header.scss'
 
 const authenticatedOptions = (
@@ -26,8 +26,7 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
   <header className="main-header">
-    <h1>SR Solutions</h1>
-    <nav>
+    <img className="icon-img" src={logo} alt="icon" width="150" height="90"/>    <nav>
       { user && <span>Welcome, {user.email}</span>}
       { user ? authenticatedOptions : unauthenticatedOptions }
       { alwaysOptions }
