@@ -11,6 +11,7 @@ import ChangePassword from './auth/components/ChangePassword'
 import Product from './products/components/Product'
 import Products from './products/components/Products'
 import ProductEdit from './products/components/ProductEdit'
+import ProductCreate from './products/components/ProductCreate'
 
 class App extends Component {
   constructor () {
@@ -65,6 +66,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} exact path='/products/:id/edit' render={() => (
             <ProductEdit flash={this.flash} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/products-create' render={() => (
+            <ProductCreate flash={this.flash} user={user} />
           )} />
         </main>
       </React.Fragment>
