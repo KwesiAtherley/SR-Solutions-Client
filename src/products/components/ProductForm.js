@@ -2,7 +2,7 @@ import React from 'react'
 import { Redirect} from 'react-router-dom'
 import { withRouter } from 'react-router'
 
-const ProductForm = ({ handleChange, handleSubmit, product, id, name, brand, quantity, cost, sale }) => (
+const ProductForm = ({ handleChange, handleSubmit, product }) => (
   <form onSubmit={handleSubmit}>
     <div className='form-group'>
       <label>Name</label>
@@ -11,7 +11,7 @@ const ProductForm = ({ handleChange, handleSubmit, product, id, name, brand, qua
         id="exampleInputName1"
         name='name'
         placeholder="Name"
-        value={name}
+        value={product.name}
         onChange={handleChange}
       />
     </div>
@@ -22,7 +22,7 @@ const ProductForm = ({ handleChange, handleSubmit, product, id, name, brand, qua
         id="exampleInputBrand1"
         name="brand"
         placeholder="Brand"
-        value={brand}
+        value={product.brand}
         onChange={handleChange}
       />
     </div>
@@ -33,7 +33,7 @@ const ProductForm = ({ handleChange, handleSubmit, product, id, name, brand, qua
         id="exampleInputQuantity1"
         name="quantity"
         placeholder="# of Cases"
-        value={quantity}
+        value={product.quantity}
         onChange={handleChange}
       />
     </div>
@@ -44,7 +44,7 @@ const ProductForm = ({ handleChange, handleSubmit, product, id, name, brand, qua
         id="exampleInputCost1"
         name="cost"
         placeholder="Wholesale Price"
-        value={cost}
+        value={product.cost}
         onChange={handleChange}
       />
     </div>
@@ -55,7 +55,7 @@ const ProductForm = ({ handleChange, handleSubmit, product, id, name, brand, qua
         id="exampleInputSale1"
         name="sale"
         placeholder="Retail Price"
-        value={sale}
+        value={product.sale}
         onChange={handleChange}
       />
     </div>

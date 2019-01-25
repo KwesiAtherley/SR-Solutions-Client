@@ -10,19 +10,23 @@ import productMessages from '../productMessages.js'
 class ProductCreate extends Component {
   constructor (props) {
     super(props)
-    console.log(props)
 
     this.state = {
       id: null,
-      product: {
-        name: '',
-        brand: '',
-        quantity: '',
-        cost: '',
-        sale: '',
-        owner: props.user._id
-      },
-      token: props.user.token
+      token: props.user.token,
+      user: props.user,
+      product: this.initialProduct()
+    }
+  }
+
+  initialProduct = () => {
+    return {
+      name: '',
+      brand: '',
+      quantity: '',
+      cost: '',
+      sale: '',
+      owner: this.props.user._id
     }
   }
 
@@ -37,13 +41,15 @@ class ProductCreate extends Component {
     event.preventDefault()
     const { flash, history, setUser } = this.props
 
-    console.log(this.state)
     createProduct(this.state)
       .then(res => res.ok ? res : new Error())
       .then(res => res.json())
       .then(data => this.setState({ created: true, id: data.product.id }))
       .then(() => flash(productMessages.createProductSuccess, 'flash-success'))
-      .catch(() => flash(productMessages.createProductFailure, 'flash-error'))
+      .catch(() => {
+        this.setState({ product: this.initialProduct() })
+        flash(productMessages.createProductFailure, 'flash-error')
+      })
   }
 
   render() {
@@ -56,6 +62,7 @@ class ProductCreate extends Component {
       <ProductForm
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
+        product={this.state.product}
       />
     )
   }
