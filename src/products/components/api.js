@@ -30,17 +30,6 @@ export const showProduct = user => {
   })
 }
 
-// export const deleteProduct = (id, token) => {
-//   const options = {
-//     method: 'DELETE',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'Authorization': `Token token=${token}`
-//     }
-//   }
-//   return fetch(`${apiUrl}/products/${id}`, options)
-// }
-
 export const signIn = credentials => {
   return fetch(apiUrl + '/sign-in', {
     method: 'POST',

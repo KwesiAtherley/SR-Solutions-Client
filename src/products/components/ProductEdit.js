@@ -9,7 +9,7 @@ import productMessages from '../productMessages.js'
 class ProductEdit extends Component {
   constructor (props) {
     super(props)
-    console.log(props)
+
     this.state = {
       updated: false,
       product: {
@@ -42,7 +42,6 @@ class ProductEdit extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    console.log('submitted form')
 
     const options = {
       method: 'PATCH',

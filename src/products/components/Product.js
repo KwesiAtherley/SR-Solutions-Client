@@ -10,7 +10,6 @@ import productMessages from '../productMessages.js'
 class Product extends Component {
   constructor (props) {
     super(props)
-    console.log(props)
 
     this.state = {
       product: null,
@@ -58,11 +57,6 @@ class Product extends Component {
    }
 
    render () {
-     // if (!this.state.product) {
-     //   return <p>loading...</p>
-     // }
-     console.log(this.state.product)
-
      const { product, notFound, deleted } = this.state
 
      if (notFound) {
@@ -79,7 +73,6 @@ class Product extends Component {
      }
 
      const { name, brand, quantity, cost, sale, _id } = this.state.product
-     console.log(_id)
      return (
        <React.Fragment>
          <h5>Product</h5>
