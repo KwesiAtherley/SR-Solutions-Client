@@ -27,14 +27,14 @@ class Products extends Component {
       .then(res => res.ok ? res : new Error())
       .then(res => res.json())
       .then(data => this.setState({ products: data.products }) )
-      .catch(console.error)
+      .catch(() => flash(productMessages.getProductFailure, 'flash-error'))
   }
 
   render () {
     if (!this.state.products) {
       return <p>loading...</p>
     }
-    
+
     const products = this.state.products.map(product => {
       return (
         <li key={product._id}>
