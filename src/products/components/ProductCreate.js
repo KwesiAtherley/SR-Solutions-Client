@@ -35,14 +35,12 @@ class ProductCreate extends Component {
       ...this.state.product, [event.target.name]: event.target.value
     }
     this.setState({ product: editedProduct })
-    console.log(this.state)
   }
 
   handleSubmit = event => {
     event.preventDefault()
     const { flash, history, setUser } = this.props
 
-    console.log(this.state)
     createProduct(this.state)
       .then(res => res.ok ? res : new Error())
       .then(res => res.json())
