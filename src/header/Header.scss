@@ -1,4 +1,8 @@
 $charcoal: #bbb;
+$cerulean: #065471;
+$pasel: #fbbe45;
+$aztec: #b7a051;
+$camo: #7a865b;
 
 .main-header {
   align-items: center;
@@ -9,9 +13,14 @@ $charcoal: #bbb;
 
   a,
   span {
+    color: $pasel;
     font-size: 1.2em;
     margin: 0 15px;
   }
+}
+
+a:hover {
+  color: $camo;
 }
 
 .main-header > nav {
