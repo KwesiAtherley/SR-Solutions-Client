@@ -1,7 +1,12 @@
 $charcoal: #bbb;
+$cerulean: #065471;
+$pasel: #fbbe45;
+$aztec: #b7a051;
+$camo: #7a865b;
 
 .main-header {
   align-items: center;
+  background-color: $cerulean;
   border-bottom: 1px solid $charcoal;
   display: flex;
   height: 100px;
@@ -9,9 +14,14 @@ $charcoal: #bbb;
 
   a,
   span {
+    color: $pasel;
     font-size: 1.2em;
     margin: 0 15px;
   }
+}
+
+a:hover {
+  color: $camo;
 }
 
 .main-header > nav {

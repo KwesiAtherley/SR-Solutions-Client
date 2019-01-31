@@ -2,11 +2,33 @@ $success: #c7f282;
 $warning: #f1e681;
 $error: #f08181;
 $charcoal: #ccc;
+$cerulean: #065471;
+$pasel: #fbbe45;
+$aztec: #b7a051;
+$camo: #7a865b;
+
+a {
+  color: $pasel;
+  &:hover {
+    color: $camo;
+  }
+}
+
+
+body {
+  background-attachment: fixed;
+  background-color: $cerulean;
+  background-image: url('https://i.imgur.com/xGi4VPG.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 25%;
+  color: $pasel;
+}
 
 .flash-success,
 .flash-warning,
 .flash-error {
-  border: 1px solid $charcoal;
+  border: 1px solid $pasel;
   display: block;
   left: 25%;
   padding: 30px;
@@ -18,15 +40,15 @@ $charcoal: #ccc;
 }
 
 .flash-success {
-  background-color: $success;
+  background-color: $camo;
 }
 
 .flash-warning {
-  background-color: $warning;
+  background-color: $camo;
 }
 
 .flash-error {
-  background-color: $error;
+  background-color: $camo;
 }
 
 .auth-form {
@@ -38,6 +60,7 @@ $charcoal: #ccc;
 
   h3,
   input {
+    color: $pasel;
     margin-bottom: 5%;
   }
 
