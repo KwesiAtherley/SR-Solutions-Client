@@ -9,16 +9,19 @@ $camo: #7a865b;
 
 a {
   color: $pasel;
-}
-
-a:hover {
-  color: $camo;
+  &:hover {
+    color: $camo;
+  }
 }
 
 
 body {
+  background-attachment: fixed;
   background-color: $cerulean;
-  background-image: 
+  background-image: url('https://i.imgur.com/xGi4VPG.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 25%;
   color: $pasel;
 }
 
