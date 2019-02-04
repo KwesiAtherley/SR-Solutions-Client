@@ -72,15 +72,16 @@ class Product extends Component {
        )
      }
 
-     const { name, brand, quantity, cost, sale, _id } = this.state.product
+     const { name, brand, quantity, cost, sale, profit, _id } = this.state.product
      return (
        <React.Fragment>
          <h5>Product</h5>
          <p>Name: {name}</p>
          <p>Brand: {brand}</p>
          <p>Quantity: {quantity}</p>
-         <p>Wholesale Prce: {cost}</p>
+         <p>Wholesale Price: {cost}</p>
          <p>Retail Price: {sale}</p>
+         <p>Profit: {profit}</p>
          <button>
            <Link to={`/products/${_id}/edit`}>Edit</Link>
          </button>
