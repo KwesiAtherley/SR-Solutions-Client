@@ -17,7 +17,8 @@ class ProductEdit extends Component {
         brand: '',
         quantity: '',
         cost: '',
-        sale: ''
+        sale: '',
+        profit: ''
       },
       token: this.props.user.token
     }
@@ -37,6 +38,8 @@ class ProductEdit extends Component {
     const editedProduct = {
       ...this.state.product, [event.target.name]:event.target.value
     }
+    editedProduct.profit = ((editedProduct.sale - editedProduct.cost) / editedProduct.cost) * 100
+    editedProduct.profit = editedProduct.profit.toFixed(2)
     this.setState({ product: editedProduct })
   }
 
