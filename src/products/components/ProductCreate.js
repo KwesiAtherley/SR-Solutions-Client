@@ -26,6 +26,7 @@ class ProductCreate extends Component {
       quantity: '',
       cost: '',
       sale: '',
+      profit: '',
       owner: this.props.user._id
     }
   }
@@ -34,6 +35,8 @@ class ProductCreate extends Component {
     const editedProduct = {
       ...this.state.product, [event.target.name]: event.target.value
     }
+    editedProduct.profit = ((editedProduct.sale - editedProduct.cost) / editedProduct.cost) * 100
+    editedProduct.profit = editedProduct.profit.toFixed(2)
     this.setState({ product: editedProduct })
   }
 
