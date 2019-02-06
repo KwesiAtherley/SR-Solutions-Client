@@ -39,7 +39,7 @@ The back end was created first and tested using curl scripts before moving onto 
 
 ### Screen Shot
 
-![Screen Shot](https://i.imgur.com/b8HbgTl.png)
+![Screen Shot](https://i.imgur.com/S76wpWh.png)
 
 ### Setup and installation instructions
 1.  Fork and clone this repository.
