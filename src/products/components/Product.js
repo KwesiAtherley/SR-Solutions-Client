@@ -89,9 +89,9 @@ class Product extends Component {
          name,
          brand,
          quantity,
-         cost,
-         sale,
-         profit,
+         `$${cost}`,
+         `$${sale}`,
+         `${profit}%`,
          <Button key={_id}>
            <Link to={`/products/${_id}/edit`}>Edit</Link>
          </Button>,
