@@ -43,7 +43,7 @@ const ProductForm = ({ handleChange, handleSubmit, product }) => (
         className="form-control"
         id="exampleInputCost1"
         name="cost"
-        placeholder="Wholesale Price"
+        placeholder="Cost Price"
         value={product.cost}
         onChange={handleChange}
       />

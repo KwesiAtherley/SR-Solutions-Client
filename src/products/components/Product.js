@@ -4,7 +4,9 @@ import apiUrl from '../../apiConfig'
 import { Redirect} from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import productMessages from '../productMessages.js'
-
+import MUIDataTable from 'mui-datatables'
+import Button from '@material-ui/core/Button'
+import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded'
 
 
 class Product extends Component {
@@ -58,6 +60,14 @@ class Product extends Component {
 
    render () {
      const { product, notFound, deleted } = this.state
+     const columns = ['Name', 'Brand','Quantity', 'Cost Price','Retail Price', 'Profit', 'Edit','Delete']
+
+
+     const options = {
+       responsive: 'stacked',
+       selectableRows: false,
+       filter: false
+     }
 
      if (notFound) {
        return <Redirect to='/' />
@@ -73,19 +83,30 @@ class Product extends Component {
      }
 
      const { name, brand, quantity, cost, sale, profit, _id } = this.state.product
+
+     const data = [
+       [
+         name,
+         brand,
+         quantity,
+         `$${cost}`,
+         `$${sale}`,
+         `${profit}%`,
+         <Button key={_id}>
+           <Link to={`/products/${_id}/edit`}>Edit</Link>
+         </Button>,
+         <Button key={_id} color="primary" onClick={this.destroy}>Delete</Button>
+       ]
+     ]
+
      return (
        <React.Fragment>
-         <h5>Product</h5>
-         <p>Name: {name}</p>
-         <p>Brand: {brand}</p>
-         <p>Quantity: {quantity}</p>
-         <p>Wholesale Price: {cost}</p>
-         <p>Retail Price: {sale}</p>
-         <p>Profit: {profit}</p>
-         <button>
-           <Link to={`/products/${_id}/edit`}>Edit</Link>
-         </button>
-         <button onClick={this.destroy}>Delete</button>
+         <MUIDataTable
+           title={'Products'}
+           data={data}
+           columns={columns}
+           options={options}
+         />
        </React.Fragment>
      )
    }
