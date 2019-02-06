@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import apiUrl from '../../apiConfig'
 import { Link, withRouter } from 'react-router-dom'
 import productMessages from '../productMessages.js'
+import MUIDataTable from 'mui-datatables'
+
 
 class Products extends Component {
   constructor (props) {
@@ -34,22 +36,39 @@ class Products extends Component {
     if (!this.state.products) {
       return <p>loading...</p>
     }
-    
+    const columns = ['View','Name', 'Brand', 'Quantity', 'Cost Price','Retail Price', 'Profit']
+
+    let data = {}
+
+    const options = {
+      responsive: 'stacked',
+      selectableRows: false,
+      filter: false
+    }
+
     const products = this.state.products.map(product => {
       return (
-        <li key={product._id}>
-          <Link to={`/products/${product._id}`}>{product.name}</Link>
-        </li>
+        data = [
+          <Link key={product._id} to={`/products/${product._id}`}>Click Here</Link>,
+          product.name,
+          product.brand,
+          product.quantity,
+          `$${product.cost}`,
+          `$${product.sale}`,
+          `${product.profit}%`
+        ]
       )
     })
 
     return (
       <React.Fragment>
         <button type="button" className="btn btn-link"><Link to={'/products-create'}>Create Product</Link></button>
-        <h4>Products:</h4>
-        <ol>
-          {this.state.products.length ? products : <h4>You don&#39;t have any products!</h4>}
-        </ol>
+        <MUIDataTable
+          title={'Products'}
+          data={products}
+          columns={columns}
+          options={options}
+        />
       </React.Fragment>
     )
   }
